@@ -1,11 +1,11 @@
 package com.benjiman21;
 
 import org.junit.jupiter.api.Test;
-import pages.TextBoxPageObjects;
+import pages.TextBoxPage;
 
 public class TestBoxTests extends TestBase {
 
-    TextBoxPageObjects testBoxPage = new TextBoxPageObjects();
+    TextBoxPage testBoxPage = new TextBoxPage();
 
     @Test
     void successfulTestBoxTest() {

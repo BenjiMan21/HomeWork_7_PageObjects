@@ -1,11 +1,11 @@
 package com.benjiman21;
 
 import org.junit.jupiter.api.Test;
-import pages.PageObjects;
+import pages.RegistrationPage;
 
 public class RegistrationTests extends TestBase {
 
-    PageObjects registrationPage = new PageObjects();
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void successfulRegistrationFormTest() {
