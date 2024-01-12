@@ -1,4 +1,4 @@
-package com.benjiman21;
+package com.nikiforov;
 
 import org.junit.jupiter.api.Test;
 import pages.TextBoxPage;
@@ -16,9 +16,9 @@ public class TestBoxTests extends TestBase {
                 .setPermanentAddress("permanent address")
                 .pressSubmit();
 
-        testBoxPage.checkResults("Name","Alex Denisov")
-                .checkResults("Email","unleash21@mail.ru")
-                .checkResults("Current Address","current address")
-                .checkResults("Permananet Address","permananet address");
+        testBoxPage.checkTextBoxResult("Name","Alex Denisov")
+                .checkTextBoxResult("Email","unleash21@mail.ru")
+                .checkTextBoxResult("Current Address","current address")
+                .checkTextBoxResult("Permananet Address","permananet address");
     }
 }

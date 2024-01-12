@@ -1,4 +1,4 @@
-package com.benjiman21;
+package com.nikiforov;
 
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
@@ -24,16 +24,16 @@ public class RegistrationTests extends TestBase {
                 .choseCity("Delhi")
                 .pressSubmit();
 
-        registrationPage.checkResult("Student Name", "Alex Nikiforov")
-                .checkResult("Student Email", "unleash21@mail.ru")
-                .checkResult("Gender","Male")
-                .checkResult("Mobile","8999777665")
-                .checkResult("Date of Birth","20 May,1989")
-                .checkResult("Subjects","English, Maths")
-                .checkResult("Hobbies","Sports, Reading")
-                .checkResult("Picture","image.jpg")
-                .checkResult("Address","Lorem ipsum dolor")
-                .checkResult("State and City","NCR Delhi");
+        registrationPage.checkRegistrationResult("Student Name", "Alex Nikiforov")
+                .checkRegistrationResult("Student Email", "unleash21@mail.ru")
+                .checkRegistrationResult("Gender","Male")
+                .checkRegistrationResult("Mobile","8999777665")
+                .checkRegistrationResult("Date of Birth","20 May,1989")
+                .checkRegistrationResult("Subjects","English, Maths")
+                .checkRegistrationResult("Hobbies","Sports, Reading")
+                .checkRegistrationResult("Picture","image.jpg")
+                .checkRegistrationResult("Address","Lorem ipsum dolor")
+                .checkRegistrationResult("State and City","NCR Delhi");
     }
 
     @Test
@@ -45,9 +45,9 @@ public class RegistrationTests extends TestBase {
                 .setPhoneNumber("8999777665")
                 .pressSubmit();
 
-        registrationPage.checkResult("Student Name", "Alex Nikiforov")
-                .checkResult("Gender","Male")
-                .checkResult("Mobile","8999777665");
+        registrationPage.checkRegistrationResult("Student Name", "Alex Nikiforov")
+                .checkRegistrationResult("Gender","Male")
+                .checkRegistrationResult("Mobile","8999777665");
     }
 
     @Test

@@ -1,12 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CheckComponentTestBox;
+import pages.components.ResultTableComponent;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class TextBoxPageObjects {
+public class TextBoxPage {
     private SelenideElement fullNameInput = $("#userName"),
             emailInput = $("#userEmail"),
             currentAddressInpit = $("#currentAddress"),
@@ -14,42 +14,42 @@ public class TextBoxPageObjects {
             submitButton = $("#submit");
 
 
-    CheckComponentTestBox checkComponent = new CheckComponentTestBox();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
-    public TextBoxPageObjects openPage() {
+    public TextBoxPage openPage() {
         open("/text-box");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    public TextBoxPageObjects setFullName(String value) {
+    public TextBoxPage setFullName(String value) {
         fullNameInput.setValue(value);
         return this;
     }
 
-    public TextBoxPageObjects setEmail(String value) {
+    public TextBoxPage setEmail(String value) {
         emailInput.setValue(value);
         return this;
     }
 
-    public TextBoxPageObjects setCurrentAddress(String value) {
+    public TextBoxPage setCurrentAddress(String value) {
         currentAddressInpit.setValue(value);
         return this;
     }
 
-    public TextBoxPageObjects setPermanentAddress(String value) {
+    public TextBoxPage setPermanentAddress(String value) {
         permanentAddressInput.setValue(value);
         return this;
     }
 
-    public TextBoxPageObjects pressSubmit() {
+    public TextBoxPage pressSubmit() {
         submitButton.click();
         return this;
     }
 
-    public TextBoxPageObjects checkResults(String key, String value) {
-        checkComponent.checkResults(key, value);
+    public TextBoxPage checkTextBoxResult (String key, String value) {
+        resultTableComponent.checkTextBoxResult(key, value);
         return this;
     }
 }

@@ -2,15 +2,14 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
-import pages.components.CheckoutComponent;
+import pages.components.ResultTableComponent;
 
-import static com.codeborne.selenide.Condition.not;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class PageObjects {
+public class RegistrationPage {
 
     private SelenideElement firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -29,90 +28,90 @@ public class PageObjects {
 
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    CheckoutComponent checkoutComponent = new CheckoutComponent();
+    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
 
-    public PageObjects openPage() {
+    public RegistrationPage openPage() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
     }
 
-    public PageObjects setFirstName(String value) {
+    public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
 
-    public PageObjects setLastName(String value) {
+    public RegistrationPage setLastName(String value) {
         lastNameInput.setValue(value);
         return this;
     }
 
-    public PageObjects setEmail(String value) {
+    public RegistrationPage setEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
 
-    public PageObjects setGender(String value) {
+    public RegistrationPage setGender(String value) {
         genderWrapper.$(byText(value)).click();
         return this;
     }
 
-    public PageObjects setPhoneNumber(String value) {
+    public RegistrationPage setPhoneNumber(String value) {
         userPhoneNumberInput.setValue(value);
         return this;
     }
 
-    public PageObjects setDateOfBirth(String day, String month, String year) {
+    public RegistrationPage setDateOfBirth(String day, String month, String year) {
         calendarInput.click();
         calendarComponent.setDate(day, month, year);
         return this;
     }
 
-    public PageObjects setSubject(String value) {
+    public RegistrationPage setSubject(String value) {
         subjectsInput.setValue(value).pressEnter();
         return this;
     }
 
-    public PageObjects choseHobbies (String value) {
+    public RegistrationPage choseHobbies (String value) {
         hobbiesSelector.$(byText(value)).click();
         return this;
     }
 
-    public PageObjects loadImage (String value) {
+    public RegistrationPage loadImage (String value) {
         imageUpload.uploadFromClasspath(value);
         return this;
     }
 
-    public PageObjects setAddress (String value) {
+    public RegistrationPage setAddress (String value) {
         addressInput.setValue(value);
         return this;
     }
 
-    public PageObjects choseState (String value) {
+    public RegistrationPage choseState (String value) {
         choseState.click();
         choseState.$(byText(value)).click();
         return this;
     }
 
-    public PageObjects choseCity (String value) {
+    public RegistrationPage choseCity (String value) {
         choseCity.click();
         choseCity.$(byText(value)).click();
         return this;
     }
 
-    public PageObjects pressSubmit() {
+    public RegistrationPage pressSubmit() {
         submitButton.click();
         return this;
     }
 
-    public PageObjects checkResult (String key, String value) {
-        checkoutComponent.checkResult(key, value);
+    public RegistrationPage checkRegistrationResult (String key, String value) {
+        resultTableComponent.checkRegistrationResult(key, value);
         return this;
     }
 
-    public PageObjects checkoutWindow () {
+    public RegistrationPage checkoutWindow () {
         checkWindow.shouldBe(visible);
         return this;
 
