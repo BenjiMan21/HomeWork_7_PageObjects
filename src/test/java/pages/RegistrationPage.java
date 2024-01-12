@@ -112,7 +112,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage checkoutWindow () {
-        checkWindow.shouldBe(visible);
+        checkWindow.shouldNotBe(visible);
         return this;
 
     }
